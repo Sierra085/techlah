@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevBot - AI-Powered Adobe Plugin | TechLah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-wireframe {
+            width: 50px;
+            height: 50px;
+            border: 2px dashed rgba(0, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #00ffff;
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .brand-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-btn {
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            color: #00ffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Main Container */
+        main {
+            margin-top: 80px;
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: rgba(10, 10, 15, 0.8);
+            border: 2px solid rgba(0, 255, 255, 0.2);
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .product-card:hover {
+            border-color: #00ffff;
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .product-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00ffff;
+        }
+
+        .product-version {
+            background: rgba(255, 0, 255, 0.2);
+            border: 1px solid #ff00ff;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+
+        .product-description {
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .product-specs {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid #00ffff;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .spec-label {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .spec-value {
+            color: #00ffff;
+            font-weight: 600;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            border: none;
+            color: #0a0a0f;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Info Box */
+        .info-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 0, 0.05);
+            border-left: 4px solid #ffff00;
+        }
+
+        .info-title {
+            color: #ffff00;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-content {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.3);
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .product-card {
+                padding: 2rem;
+            }
+
+            .product-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html" class="logo-container">
+            <div class="logo-wireframe">TL</div>
+            <div class="brand-name">TechLah</div>
+        </a>
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="how-to.html" class="nav-btn">How-To Guide</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">RevBot</h1>
+            <p class="page-subtitle">
+                AI-powered Adobe plugin that revolutionizes your creative workflow
+            </p>
+        </div>
+
+        <!-- RevBot Product Card -->
+        <div class="product-card">
+            <!-- Product Image Placeholder -->
+            <div style="width: 100%; height: 300px; background: rgba(0,255,255,0.05); border: 2px dashed rgba(0,255,255,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; position: relative; overflow: hidden;">
+                <div style="text-align: center; z-index: 2;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🤖</div>
+                    <div style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">[ Product Image - PNG Coming Soon ]</div>
+                </div>
+            </div>
+
+            <div class="product-header">
+                <h3 class="product-name">RevBot</h3>
+                <span class="product-version">TRIAL</span>
+            </div>
+            
+            <p class="product-description">
+                [ Product description coming soon - Adobe ACC tool plugin that speeds up your workflow with AI-powered automation ]
+            </p>
+
+            <div class="product-specs">
+                <div class="spec-item">
+                    <span class="spec-label">Platform:</span>
+                    <span class="spec-value">Adobe After Effects / Creative Cloud</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Trial Period:</span>
+                    <span class="spec-value">X Days (Full details coming)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Requirement:</span>
+                    <span class="spec-value">Claude API Key Required</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">License:</span>
+                    <span class="spec-value">Free Trial (Subscription coming soon)</span>
+                </div>
+            </div>
+
+            <div style="display: grid; gap: 1rem;">
+                <button class="download-btn" onclick="downloadFile('revbot.exe')">
+                    📥 Download RevBot Trial
+                </button>
+                <a href="how-to.html" style="text-decoration: none;">
+                    <button class="nav-btn" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                        📖 How to Get Your Claude API Key
+                    </button>
+                </a>
+            </div>
+
+            <!-- Important Note -->
+            <div class="info-box">
+                <div class="info-title">
+                    <span>⚠️</span> Important: Claude API Key Required
+                </div>
+                <p class="info-content">
+                    RevBot uses Claude AI to power its features. You'll need your own Claude API key to use this plugin. 
+                    Don't have one? Check our step-by-step guide above to get started in minutes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer style="margin-top: 6rem; padding-top: 3rem; border-top: 1px solid rgba(0, 255, 255, 0.1); text-align: center;">
+            <div style="margin-bottom: 2rem;">
+                <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00ffff; margin-bottom: 1rem;">TechLah</div>
+                <div style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; max-width: 600px; margin: 0 auto;">
+                    Building AI-powered tools that amplify creative workflows
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="index.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#00ffff'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">Home</a>
+                <a href="how-to.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#00ffff'" onmouseout="this.style.color='rgba(255, 255, 255, 0.6)'">How-To Guide</a>
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.4); font-size: 0.85rem; line-height: 1.8;">
+                <p style="margin-bottom: 0.5rem;">&copy; 2026 TechLah. All rights reserved.</p>
+                <p style="margin-bottom: 0.5rem;">Made with 🤖 for creators, by creators</p>
+                <p style="font-size: 0.75rem; margin-top: 1rem;">TechLah is not affiliated with Adobe Inc. or Anthropic PBC.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Generate animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 40;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Download file function - UPDATE WITH YOUR ACTUAL REVBOT FILE URL
+        function downloadFile(filename) {
+            // IMPORTANT: Replace this URL with your actual RevBot file hosting URL
+            // Recommended: Use GitHub Releases
+            // Format: https://github.com/Sierra085/techlah/releases/download/v1.0.0/revbot.exe
+            const fileUrls = {
+                'revbot.exe': 'https://github.com/Sierra085/techlah/releases/download/v1.0.0/revbot.exe'
+            };
+
+            const url = fileUrls[filename];
+            
+            if (url) {
+                // Create temporary link and trigger download
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Show feedback
+                alert(`Starting download: RevBot Trial\n\nRemember: You'll need a Claude API key to use RevBot.\nCheck the How-To Guide for setup instructions.`);
+            } else {
+                alert('Download URL not configured yet. Please upload RevBot to GitHub Releases and update the URL in the code.');
+            }
+        }
+
+        // Initialize particles on page load
+        document.addEventListener('DOMContentLoaded', createParticles);
+    </script>
+</body>
+</html>
