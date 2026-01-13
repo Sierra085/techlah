@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Get Claude API Key - TechLah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-wireframe {
+            width: 50px;
+            height: 50px;
+            border: 2px dashed rgba(0, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #00ffff;
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .brand-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-btn {
+            padding: 0.7rem 1.5rem;
+            background: transparent;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            color: #00ffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(0, 255, 255, 0.2);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #00ffff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            margin: 2rem 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Steps List */
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            counter-increment: step-counter;
+            margin-bottom: 2rem;
+            padding-left: 4rem;
+            position: relative;
+        }
+
+        .step-item::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            color: #0a0a0f;
+            font-weight: 900;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .step-title {
+            color: #00ffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(255, 255, 0, 0.05);
+            border: 2px solid rgba(255, 255, 0, 0.3);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box-title {
+            color: #ffff00;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box-content {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Link */
+        .external-link {
+            color: #00ffff;
+            text-decoration: none;
+            border-bottom: 1px dashed #00ffff;
+            transition: all 0.3s ease;
+        }
+
+        .external-link:hover {
+            color: #0099ff;
+            border-bottom-color: #0099ff;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            color: #0a0a0f;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .step-item {
+                padding-left: 3.5rem;
+            }
+
+            .step-item::before {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html" class="logo-container">
+            <div class="logo-wireframe">TL</div>
+            <div class="brand-name">TechLah</div>
+        </a>
+        <div class="nav-buttons">
+            <a href="index.html#products" class="nav-btn">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">How to Get Your Claude API Key</h1>
+            <p class="page-subtitle">
+                Follow this simple guide to set up your Claude API key and start using RevBot
+            </p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="content-section">
+            <h2 class="section-title">📋 What You'll Need</h2>
+            <div class="section-content">
+                <p>
+                    To use RevBot, you'll need an API key from Anthropic (the creators of Claude). 
+                    This allows RevBot to leverage Claude's AI capabilities directly in your Adobe workflow.
+                </p>
+                <p>
+                    <strong>Don't worry!</strong> Getting your API key is quick and straightforward. 
+                    Watch the video below for a complete walkthrough, or follow the step-by-step guide underneath.
+                </p>
+            </div>
+        </div>
+
+        <!-- Video Tutorial -->
+        <div class="content-section">
+            <h2 class="section-title">🎥 Video Tutorial</h2>
+            <div class="section-content">
+                <p>
+                    Watch this comprehensive video guide that walks you through the entire process:
+                </p>
+                
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/vgncj7MJbVU" 
+                        title="How to Get Claude API Key" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">💡 Pro Tip</div>
+                    <div class="info-box-content">
+                        You can pause the video at any time and follow along at your own pace. 
+                        The process typically takes less than 5 minutes!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-by-Step Guide -->
+        <div class="content-section">
+            <h2 class="section-title">📝 Step-by-Step Instructions</h2>
+            <div class="section-content">
+                <p>Prefer written instructions? Here's what to do:</p>
+                
+                <ol class="steps-list">
+                    <li class="step-item">
+                        <div class="step-title">Visit Anthropic's Console</div>
+                        <div class="step-description">
+                            Go to <a href="https://console.anthropic.com" target="_blank" class="external-link">console.anthropic.com</a> 
+                            and sign up for an account or log in if you already have one.
+                        </div>
+                    </li>
+
+                    <li class="step-item">
+                        <div class="step-title">Navigate to API Keys</div>
+                        <div class="step-description">
+                            Once logged in, find the "API Keys" section in your dashboard. 
+                            This is usually in the left sidebar or under your account settings.
+                        </div>
+                    </li>
+
+                    <li class="step-item">
+                        <div class="step-title">Create New API Key</div>
+                        <div class="step-description">
+                            Click "Create Key" or "Generate API Key". Give it a descriptive name 
+                            like "RevBot Plugin" so you can identify it later.
+                        </div>
+                    </li>
+
+                    <li class="step-item">
+                        <div class="step-title">Copy Your Key</div>
+                        <div class="step-description">
+                            <strong>Important!</strong> Copy your API key immediately and store it safely. 
+                            You won't be able to see it again after you close the window.
+                        </div>
+                    </li>
+
+                    <li class="step-item">
+                        <div class="step-title">Add to RevBot</div>
+                        <div class="step-description">
+                            Open RevBot in Adobe After Effects, navigate to Settings, and paste your 
+                            API key in the designated field. Save, and you're ready to go!
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="info-box" style="background: rgba(255, 100, 100, 0.05); border-color: rgba(255, 100, 100, 0.3);">
+                    <div class="info-box-title" style="color: #ff6464;">
+                        ⚠️ Security Notice
+                    </div>
+                    <div class="info-box-content">
+                        Never share your API key publicly or commit it to version control. 
+                        Treat it like a password - keep it secure and private.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="content-section">
+            <h2 class="section-title">🔗 Additional Resources</h2>
+            <div class="section-content">
+                <p>
+                    <strong>Need help?</strong> Check out these resources:
+                </p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="https://docs.anthropic.com/claude/docs" target="_blank" class="external-link">
+                            Anthropic API Documentation
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="https://console.anthropic.com" target="_blank" class="external-link">
+                            Anthropic Console
+                        </a>
+                    </li>
+                </ul>
+
+                <div style="text-align: center;">
+                    <a href="index.html#products" class="cta-button">
+                        ← Back to RevBot Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
