@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #1e3a5f;
-            color: #000000;
+            background: #0a0a0f;
+            color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -28,14 +28,14 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(30, 58, 95, 0.95);
+            background: rgba(10, 10, 15, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid #1f4591;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
         }
 
         .logo-container {
@@ -48,22 +48,25 @@
         .logo-wireframe {
             width: 50px;
             height: 50px;
-            border: 2px dashed #000000;
+            border: 2px dashed rgba(0, 255, 255, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             font-size: 1.5rem;
-            color: #000000;
-            background: rgba(255, 255, 255, 0.9);
+            color: #00ffff;
+            background: rgba(0, 255, 255, 0.05);
         }
 
         .brand-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             font-weight: 900;
-            color: #000000;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-buttons {
@@ -74,8 +77,8 @@
         .nav-btn {
             padding: 0.7rem 1.5rem;
             background: transparent;
-            border: 2px solid #68a4f1;
-            color: #ffffff;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            color: #00ffff;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             cursor: pointer;
@@ -85,10 +88,9 @@
         }
 
         .nav-btn:hover {
-            background: #68a4f1;
-            border-color: #68a4f1;
-            color: #000000;
-            box-shadow: 0 0 20px rgba(104, 164, 241, 0.6);
+            background: rgba(0, 255, 255, 0.1);
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         /* Main Container */
@@ -110,29 +112,31 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: #000000;
+            background: linear-gradient(135deg, #00ffff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .page-subtitle {
             font-size: 1.3rem;
-            color: #000000;
+            color: rgba(255, 255, 255, 0.7);
             max-width: 700px;
             margin: 0 auto;
-            font-weight: 500;
         }
 
         /* Product Card */
         .product-card {
-            background: rgba(42, 74, 111, 0.3);
-            border: 2px solid #1f4591;
+            background: rgba(10, 10, 15, 0.8);
+            border: 2px solid rgba(0, 255, 255, 0.2);
             padding: 3rem;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .product-card:hover {
-            border-color: #2b6ad0;
-            box-shadow: 0 10px 30px rgba(43, 106, 208, 0.3);
+            border-color: #00ffff;
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
         }
 
         .product-header {
@@ -145,30 +149,28 @@
         .product-name {
             font-size: 2rem;
             font-weight: 700;
-            color: #000000;
+            color: #00ffff;
         }
 
         .product-version {
-            background: rgba(104, 164, 241, 0.5);
-            border: 1px solid #68a4f1;
+            background: rgba(255, 0, 255, 0.2);
+            border: 1px solid #ff00ff;
             padding: 0.5rem 1rem;
             font-size: 1rem;
-            color: #000000;
-            font-weight: 700;
         }
 
         .product-description {
             margin-bottom: 2rem;
-            color: #000000;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1.1rem;
             line-height: 1.8;
         }
 
         .product-specs {
-            background: rgba(31, 69, 145, 0.15);
+            background: rgba(0, 255, 255, 0.05);
             padding: 1.5rem;
             margin-bottom: 2rem;
-            border-left: 3px solid #2b6ad0;
+            border-left: 3px solid #00ffff;
         }
 
         .spec-item {
@@ -179,20 +181,20 @@
         }
 
         .spec-label {
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .spec-value {
-            color: #000000;
+            color: #00ffff;
             font-weight: 600;
         }
 
         .download-btn {
             width: 100%;
             padding: 1.2rem;
-            background: linear-gradient(135deg, #68a4f1, #2b6ad0);
+            background: linear-gradient(135deg, #00ffff, #0099ff);
             border: none;
-            color: #ffffff;
+            color: #0a0a0f;
             font-weight: 700;
             font-size: 1.2rem;
             cursor: pointer;
@@ -205,20 +207,19 @@
 
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(104, 164, 241, 0.5);
-            background: linear-gradient(135deg, #2b6ad0, #1f4591);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
         }
 
         /* Info Box */
         .info-box {
             margin-top: 2rem;
             padding: 1.5rem;
-            background: rgba(31, 69, 145, 0.15);
-            border-left: 4px solid #1f4591;
+            background: rgba(255, 255, 0, 0.05);
+            border-left: 4px solid #ffff00;
         }
 
         .info-title {
-            color: #000000;
+            color: #ffff00;
             font-weight: 700;
             margin-bottom: 0.5rem;
             display: flex;
@@ -228,7 +229,7 @@
         }
 
         .info-content {
-            color: #000000;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
         }
 
@@ -248,7 +249,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgba(31, 69, 145, 0.4);
+            background: rgba(0, 255, 255, 0.3);
             animation: float linear infinite;
         }
 
