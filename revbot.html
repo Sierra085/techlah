@@ -413,13 +413,11 @@
             }
         }
 
-        // Download file function - UPDATE WITH YOUR ACTUAL REVBOT FILE URL
+        // Download file function - Hosted on Cloudflare R2
         function downloadFile(filename) {
-            // IMPORTANT: Replace this URL with your actual RevBot file hosting URL
-            // Recommended: Use GitHub Releases
-            // Format: https://github.com/Sierra085/techlah/releases/download/v1.0.0/revbot.exe
+            // RevBot trial download hosted on Cloudflare R2
             const fileUrls = {
-                'revbot.exe': 'https://github.com/Sierra085/techlah/releases/download/v1.0.0/revbot.exe'
+                'revbot.exe': 'https://revbot-download.techlahsg.workers.dev/revbot'
             };
 
             const url = fileUrls[filename];
@@ -428,15 +426,15 @@
                 // Create temporary link and trigger download
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = filename;
+                link.download = 'RevBot-Setup-Trial-v1.0.4.exe';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 
                 // Show feedback
-                alert(`Starting download: RevBot Trial\n\nRemember: You'll need a Claude API key to use RevBot.\nCheck the How-To Guide for setup instructions.`);
+                alert(`Starting download: RevBot Trial v1.0.4\n\nRemember: You'll need a Claude API key to use RevBot.\nCheck the How-To Guide for setup instructions.`);
             } else {
-                alert('Download URL not configured yet. Please upload RevBot to GitHub Releases and update the URL in the code.');
+                alert('Download failed. Please try again or contact support.');
             }
         }
 
